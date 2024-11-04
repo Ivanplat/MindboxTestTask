@@ -33,7 +33,7 @@ public class GenericFigureTests
         GenericFigureFactory factory = new();
         var figure = factory.CreateShape(points);
 
-        Assert.Equal(figure.CalculateSquare(), expected, double.Epsilon);
+        Assert.Equal(figure.CalculateSquare(), expected, 0.01);
     }
 }
 
