@@ -12,6 +12,19 @@ public sealed class GenericFigure : Shape
     /// </summary>
     private double[][] points_ = null!;
 
+    /// <summary>
+    /// Getter by copy points property
+    /// </summary>
+    public double[] Points
+    {
+        get
+        {
+            double[] result = new double[points_.Length];
+            points_.CopyTo(result, 0);
+            return result;
+        }
+    }
+
     public override double CalculateSquare()
     {
         return GaussianSquare();

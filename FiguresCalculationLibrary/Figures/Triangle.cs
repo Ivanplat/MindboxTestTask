@@ -9,6 +9,20 @@ namespace FiguresCalculationLibrary.Figures;
 public sealed class Triangle : Shape
 {
     private double[] segments_ = null!;
+
+    /// <summary>
+    /// Getter by copy segments property
+    /// </summary>
+    public double[] Segments 
+    { 
+        get
+       {
+            double[] result = new double[segments_.Length];
+            segments_.CopyTo(result, 0);
+            return result;
+        }
+    }
+
     public override double CalculateSquare()
     {
         if (IsTriangleRectangular(out double[] temp))
