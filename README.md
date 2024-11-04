@@ -17,5 +17,8 @@
 ```
 
 3. Создайте фабрику для нового класса, наследуемую от [`ShapeFactory`](https://github.com/Ivanplat/MindboxTestTask/blob/main/FiguresCalculationLibrary/Factories/ShapeFactory.cs);
-4. Пользуйтесь методом фабрики ```csharp CreateShape(ArgsType args)``` из созданной фабрики;
+4. Пользуйтесь методом из созданной фабрики 
+```csharp
+ Shape CreateShape(ArgsType args)
+ ```
 5. Радуемся :)
