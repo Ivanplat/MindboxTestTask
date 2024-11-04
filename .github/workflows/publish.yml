@@ -34,7 +34,7 @@ jobs:
         shell: bash
         run: |
           tag=$(git describe --tags --abbrev=0)
-          release_name="App-$tag-${{ matrix.target }}"
+          release_name="FiguresCalculation-$tag-${{ matrix.target }}"
 
           dotnet publish FiguresCalculation.sln --runtime "${{ matrix.target }}" -c Release -o "$release_name"
 
