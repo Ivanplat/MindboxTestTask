@@ -11,21 +11,28 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
 
-    runs-on: [windows-latest]
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup .NET
-      uses: actions/setup-msbuild@v1
-      with:
-        dotnet-version: 8.0.x
+      - name: Check out repository code
+        uses: actions/checkout@v2
 
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@1.0.2
-      
-    - name: Restore NuGet
-      run: nuget restore FiguresCalculation.sln
-      
-    - name: Build
-      run: msbuild FiguresCalculation.sln --configuration Release --no-restore
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore dependencies
+        run: dotnet restore FiguresCalculation.sln
+
+      - name: Build the solution
+        run: dotnet build FiguresCalculation.sln --configuration Release --no-restore
+
+      - name: Run unit tests with report
+        run: dotnet test ./FiguresCalculationTests/FiguresCalculationTests.csproj --configuration Release --no-build --logger "trx;LogFileName=TestResults.trx"
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: ./FiguresCalculationTests/TestResults/TestResults.trx
