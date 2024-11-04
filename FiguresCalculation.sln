@@ -5,9 +5,7 @@ VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiguresCalculationLibrary", "FiguresCalculationLibrary\FiguresCalculationLibrary.csproj", "{651F9A7D-0FB7-4263-8614-7E18B5B5F255}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingConsoleApplication", "TestingConsoleApplication\TestingConsoleApplication.csproj", "{DFEA6308-9780-46AC-8F42-D479B791FCD4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresCalculationTests", "FiguresCalculationTests\FiguresCalculationTests.csproj", "{B95EB8E1-D75E-4B97-82E0-164FD72B819A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiguresCalculationTests", "FiguresCalculationTests\FiguresCalculationTests.csproj", "{B95EB8E1-D75E-4B97-82E0-164FD72B819A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{651F9A7D-0FB7-4263-8614-7E18B5B5F255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{651F9A7D-0FB7-4263-8614-7E18B5B5F255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{651F9A7D-0FB7-4263-8614-7E18B5B5F255}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFEA6308-9780-46AC-8F42-D479B791FCD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFEA6308-9780-46AC-8F42-D479B791FCD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFEA6308-9780-46AC-8F42-D479B791FCD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFEA6308-9780-46AC-8F42-D479B791FCD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B95EB8E1-D75E-4B97-82E0-164FD72B819A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B95EB8E1-D75E-4B97-82E0-164FD72B819A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B95EB8E1-D75E-4B97-82E0-164FD72B819A}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,10 +1,15 @@
 ﻿using FiguresCalculationLibrary.Base;
-using System.Drawing;
 
 namespace FiguresCalculationLibrary.Figures;
 
-public class GenericFigure : Shape
+/// <summary>
+/// Generic figure object class. This class uses coordinates instead of segments length
+/// </summary>
+public sealed class GenericFigure : Shape
 {
+    /// <summary>
+    /// The array of coordinate points
+    /// </summary>
     private double[][] points_ = null!;
 
     public override double CalculateSquare()
@@ -16,24 +21,36 @@ public class GenericFigure : Shape
     {
         var points = args as double[][];
 
+        CheckInitializingPoints(points);
+
+#pragma warning disable CS8601  //it can't be null and has incorrect length here if fact that it's checked in CheckInitializingPoints
+        points_ = points;
+#pragma warning restore CS8601
+    }
+
+    private void CheckInitializingPoints(double[][]? points)
+    {
         if (points is null)
         {
-            throw new ArgumentException();
+            throw new ArgumentException($"Arguments cannot be null");
         }
 
         if (points.Length == 0)
         {
-            throw new ArgumentException();
+            throw new ArgumentException($"Should be at least one point");
         }
 
-        if(points[0].Length != 2)
+        if (points[0].Length != 2)
         {
-            throw new ArgumentException();
+            throw new ArgumentException($"Coordinates should be given in format of 2 coordinates (X, Y)");
         }
-
-        points_ = points;
     }
 
+    /// <summary>
+    /// Calculates the square of generic figure using Gaussian square formula by its coordinates.
+    /// <see cref="https://en.wikipedia.org/wiki/Shoelace_formula"/>
+    /// </summary>
+    /// <returns>The square of a generic figure</returns>
     private double GaussianSquare()
     {
         double result = 0;
@@ -71,7 +88,9 @@ public class GenericFigure : Shape
 
         for(int i = 0; i < points_.Length; ++i)
         {
-            if (points_[i] != other.points_[i])
+            if (points_[i][0] != other.points_[i][0] &&
+                points_[i][1] != other.points_[i][1])
+
             {
                 return false;
             }
