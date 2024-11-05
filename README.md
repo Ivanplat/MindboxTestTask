@@ -30,7 +30,7 @@
 /*Трапеция*/
 public sealed class Trapezoid : Shape
 {
-    private double[] segments_ = null;
+    private double[] segments_ = null!;
 
     public override double CalculateSquare()
     {
